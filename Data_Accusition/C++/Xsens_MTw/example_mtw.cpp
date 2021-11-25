@@ -30,7 +30,7 @@
 //  ARBITRATORS APPOINTED IN ACCORDANCE WITH SAID RULES.
 //  
 
-#include <xsensdeviceapi.h> // The Xsens device API header
+#include "include/xsensdeviceapi.h" // The Xsens device API header
 #include "conio.h"			// For non ANSI _kbhit() and _getch()
 
 #include <string>
@@ -42,8 +42,8 @@
 #include <list>
 #include <utility>
 
-#include "xsmutex.h"
-#include <xstypes/xstime.h>
+#include "include/xsmutex.h"
+#include "include/xstypes/xstime.h"
 
 /*! \brief Stream insertion operator overload for XsPortInfo */
 std::ostream& operator << (std::ostream& out, XsPortInfo const & p)
