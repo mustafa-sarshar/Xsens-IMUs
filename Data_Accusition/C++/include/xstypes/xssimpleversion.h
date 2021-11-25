@@ -1,5 +1,5 @@
 
-//  Copyright (c) 2003-2020 Xsens Technologies B.V. or subsidiaries worldwide.
+//  Copyright (c) 2003-2021 Xsens Technologies B.V. or subsidiaries worldwide.
 //  All rights reserved.
 //  
 //  Redistribution and use in source and binary forms, with or without modification,
@@ -154,16 +154,31 @@ struct XsSimpleVersion
 	}
 
 	//! \brief Return the \e major part of the version
-	inline int major() const { return (int) m_major; }
+	inline int major() const
+	{
+		return (int) m_major;
+	}
 	//! \brief Return the \e minor part of the version
-	inline int minor() const { return (int) m_minor; }
+	inline int minor() const
+	{
+		return (int) m_minor;
+	}
 	//! \brief Return the \e revision part of the version
-	inline int revision() const { return (int) m_revision; }
+	inline int revision() const
+	{
+		return (int) m_revision;
+	}
 
 	//! \brief \copybrief XsSimpleVersion_osVersion
 	inline static XsSimpleVersion osVersion()
 	{
-		static XsSimpleVersion rv = []() { XsSimpleVersion rv; XsSimpleVersion_osVersion(&rv); return rv; }();
+		static XsSimpleVersion rv = []()
+		{
+			XsSimpleVersion rv;
+			XsSimpleVersion_osVersion(&rv);
+			return rv;
+		}
+		();
 		return rv;
 	}
 

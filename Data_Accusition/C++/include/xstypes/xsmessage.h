@@ -1,5 +1,5 @@
 
-//  Copyright (c) 2003-2020 Xsens Technologies B.V. or subsidiaries worldwide.
+//  Copyright (c) 2003-2021 Xsens Technologies B.V. or subsidiaries worldwide.
 //  All rights reserved.
 //  
 //  Redistribution and use in source and binary forms, with or without modification,
@@ -87,7 +87,7 @@ XSTYPES_DLL_API void XsMessage_setDataBuffer(XsMessage* thisPtr, const uint8_t* 
 XSTYPES_DLL_API uint8_t XsMessage_computeChecksum(XsMessage const* thisPtr);
 XSTYPES_DLL_API void XsMessage_recomputeChecksum(XsMessage* thisPtr);
 XSTYPES_DLL_API int XsMessage_isChecksumOk(XsMessage const* thisPtr);
-XSTYPES_DLL_API XsMessageHeader* XsMessage_getHeader(XsMessage* );
+XSTYPES_DLL_API XsMessageHeader* XsMessage_getHeader(XsMessage*);
 XSTYPES_DLL_API const XsMessageHeader* XsMessage_getConstHeader(XsMessage const* thisPtr);
 XSTYPES_DLL_API int XsMessage_empty(XsMessage const* thisPtr);
 XSTYPES_DLL_API void XsMessage_resizeData(XsMessage* thisPtr, XsSize newSize);
@@ -96,14 +96,14 @@ XSTYPES_DLL_API void XsMessage_setMessageId(XsMessage* thisPtr, XsXbusMessageId 
 XSTYPES_DLL_API void XsMessage_insertData(XsMessage* thisPtr, XsSize count, XsSize offset);
 XSTYPES_DLL_API void XsMessage_deleteData(XsMessage* thisPtr, XsSize count, XsSize offset);
 XSTYPES_DLL_API uint8_t XsMessage_getFPValueSize(XsDataIdentifier id);
-XSTYPES_DLL_API void XsMessage_getDataFPValuesById(XsMessage const* thisPtr, XsDataIdentifier dataIdentifier, double *dest, XsSize offset, XsSize numValues);
-XSTYPES_DLL_API void XsMessage_setDataFPValuesById(XsMessage* thisPtr, XsDataIdentifier dataIdentifier, double const *data, XsSize offset, XsSize numValues);
-XSTYPES_DLL_API void XsMessage_getDataRealValuesById(XsMessage const* thisPtr, XsDataIdentifier dataIdentifier, XsReal *dest, XsSize offset, XsSize numValues);
-XSTYPES_DLL_API void XsMessage_setDataRealValuesById(XsMessage* thisPtr, XsDataIdentifier dataIdentifier, XsReal const *data, XsSize offset, XsSize numValues);
+XSTYPES_DLL_API void XsMessage_getDataFPValuesById(XsMessage const* thisPtr, XsDataIdentifier dataIdentifier, double* dest, XsSize offset, XsSize numValues);
+XSTYPES_DLL_API void XsMessage_setDataFPValuesById(XsMessage* thisPtr, XsDataIdentifier dataIdentifier, double const* data, XsSize offset, XsSize numValues);
+XSTYPES_DLL_API void XsMessage_getDataRealValuesById(XsMessage const* thisPtr, XsDataIdentifier dataIdentifier, XsReal* dest, XsSize offset, XsSize numValues);
+XSTYPES_DLL_API void XsMessage_setDataRealValuesById(XsMessage* thisPtr, XsDataIdentifier dataIdentifier, XsReal const* data, XsSize offset, XsSize numValues);
 XSTYPES_DLL_API int XsMessage_compare(XsMessage const* a, XsMessage const* b);
 XSTYPES_DLL_API void XsMessage_toHexString(XsMessage const* thisPtr, XsSize maxBytes, XsString* resultValue);
-XSTYPES_DLL_API void XsMessage_getEndianCorrectData(XsMessage const* thisPtr, void *value, XsSize size, XsSize offset);
-XSTYPES_DLL_API void XsMessage_setEndianCorrectData(XsMessage *thisPtr, void const *value, XsSize size, XsSize offset);
+XSTYPES_DLL_API void XsMessage_getEndianCorrectData(XsMessage const* thisPtr, void* value, XsSize size, XsSize offset);
+XSTYPES_DLL_API void XsMessage_setEndianCorrectData(XsMessage* thisPtr, void const* value, XsSize size, XsSize offset);
 
 #ifdef __cplusplus
 } // extern "C"
@@ -134,18 +134,22 @@ XS_PACKED_STRUCT_START
 /*! \brief A message header
 	\details This structure is used to interpret the header of a message.
 */
-struct XsMessageHeader {
+struct XsMessageHeader
+{
 	uint8_t m_preamble;  //!< \brief The message preamble (always 0xFA)
 	uint8_t m_busId;     //!< \brief The bus ID \sa XS_BID_MASTER XS_BID_BROADCAST XS_BID_MT
 	uint8_t m_messageId; //!< \brief The message ID \sa XsXbusMessageId
 	uint8_t m_length;    //!< \brief The length of the message \details A length of 255 means extended length is used
 
 	/*! Contains optional extended length of message and first byte of data buffer */
-	union LengthData {
+	union LengthData
+	{
 		/*! Contains extended length information and first byte of data buffer if normal length is 255 */
-		struct ExtendedLength {
+		struct ExtendedLength
+		{
 			/*! The high and low byte of the extended length */
-			struct ExtendedParts {
+			struct ExtendedParts
+			{
 				uint8_t m_high;	//!< \brief High byte of extended length
 				uint8_t m_low;	//!< \brief Low byte of extended length
 			} m_length;			//!< \brief Extended length, only valid if normal length is 255
@@ -163,7 +167,8 @@ XS_PACKED_STRUCT_END
 
 //////////////////////////////////////////////////////////////////////////////////////////
 //! \brief Structure for storing a single message.
-struct XsMessage {
+struct XsMessage
+{
 #ifdef __cplusplus
 	/*! \brief Create a XsMessage object with the given data length and message Id.
 
@@ -207,21 +212,21 @@ struct XsMessage {
 		: m_autoUpdateChecksum(1)
 		, m_checksum(0)
 	{
-		XsSize szm = source.size()/2;
+		XsSize szm = source.size() / 2;
 		XsSize szmcc = szm + (computeChecksum ? 1 : 0);
 		XsByteArray tmp(szmcc);
 		auto tonibble = [](char a) -> uint8_t
 		{
 			if (a >= '0' && a <= '9')
-				return (uint8_t) (a-'0');
+				return (uint8_t)(a - '0');
 			if (a >= 'a' && a <= 'f')
-				return (uint8_t) (10+a-'a');
+				return (uint8_t)(10 + a - 'a');
 			if (a >= 'A' && a <= 'F')
-				return (uint8_t) (10+a-'A');
+				return (uint8_t)(10 + a - 'A');
 			return 0;
 		};
 		for (XsSize i = 0; i < szm; ++i)
-			tmp[i] = tonibble(source[i*2])*(uint8_t)16+tonibble(source[i*2+1]);	//lint !e734
+			tmp[i] = tonibble(source[i * 2]) * (uint8_t)16 + tonibble(source[i * 2 + 1]);	//lint !e734
 		XsMessage_load(this, tmp.size(), tmp.data());
 		if (computeChecksum)
 			XsMessage_recomputeChecksum(this);
@@ -437,7 +442,7 @@ struct XsMessage {
 
 	/*! \copydoc XsMessage_setDataDouble
 	*/
-	inline void setDataDouble(const double value, XsSize offset=0)
+	inline void setDataDouble(const double value, XsSize offset = 0)
 	{
 		XsMessage_setDataDouble(this, value, offset);
 	}
@@ -518,7 +523,7 @@ struct XsMessage {
 	}
 
 	/*! \copydoc XsMessage_getDataFPValuesById */
-	inline void getDataFPValue(XsDataIdentifier dataIdentifier, double *dest, XsSize offset = 0, XsSize numValues = 1) const
+	inline void getDataFPValue(XsDataIdentifier dataIdentifier, double* dest, XsSize offset = 0, XsSize numValues = 1) const
 	{
 		XsMessage_getDataFPValuesById(this, dataIdentifier, dest, offset, numValues);
 	}
@@ -538,7 +543,7 @@ struct XsMessage {
 	}
 
 	/*! \copydoc XsMessage_setDataFPValuesById */
-	inline void setDataFPValue(XsDataIdentifier dataIdentifier, const double *data, XsSize offset = 0, XsSize numValues = 1)
+	inline void setDataFPValue(XsDataIdentifier dataIdentifier, const double* data, XsSize offset = 0, XsSize numValues = 1)
 	{
 		XsMessage_setDataFPValuesById(this, dataIdentifier, data, offset, numValues);
 	}
@@ -591,7 +596,7 @@ struct XsMessage {
 	{
 		(void) id;
 		for (int i = 0; i < numValues; ++i)
-			XsMessage_getEndianCorrectData(this, &data[i], sizeof(T), offset+((unsigned int)i)*sizeof(T));
+			XsMessage_getEndianCorrectData(this, &data[i], sizeof(T), offset + ((unsigned int)i)*sizeof(T));
 	}
 
 	/*! \brief Write data of type T to the message
@@ -606,7 +611,7 @@ struct XsMessage {
 	{
 		(void) id;
 		for (int i = 0; i < numValues; ++i)
-			XsMessage_setEndianCorrectData(this, &data[i], sizeof(T), offset+((unsigned int)i)*sizeof(T));
+			XsMessage_setEndianCorrectData(this, &data[i], sizeof(T), offset + ((unsigned int)i)*sizeof(T));
 	}
 
 	/*! \brief Return the number of bytes that \a numValues items of type T will require in a message
@@ -627,7 +632,7 @@ private:
 	{
 		XsSize sz = XsMessage_getTotalMessageSize(this);
 		if (sz)
-			*const_cast<uint8_t**>(&m_checksum) = &m_message[sz-1];
+			*const_cast<uint8_t**>(&m_checksum) = &m_message[sz - 1];
 		else
 			*const_cast<uint8_t**>(&m_checksum) = 0;
 	}

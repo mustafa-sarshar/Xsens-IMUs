@@ -1,5 +1,5 @@
 
-//  Copyright (c) 2003-2020 Xsens Technologies B.V. or subsidiaries worldwide.
+//  Copyright (c) 2003-2021 Xsens Technologies B.V. or subsidiaries worldwide.
 //  All rights reserved.
 //  
 //  Redistribution and use in source and binary forms, with or without modification,
@@ -34,7 +34,7 @@
 #define XSDEVICEOPTIONFLAG_H
 
 /*!	\addtogroup enums Global enumerations
-@{
+    @{
 */
 /*! \brief Used to enable or disable some device options
 	\sa XsDevice::setDeviceOptionFlags
@@ -66,25 +66,25 @@ typedef enum  XsDeviceOptionFlag XsDeviceOptionFlag;
 //! \brief Logical OR operator for XsDeviceOptionFlag values
 inline XsDeviceOptionFlag operator | (XsDeviceOptionFlag a, XsDeviceOptionFlag b)
 {
-	return (XsDeviceOptionFlag) ((int)a | (int)b);
+	return (XsDeviceOptionFlag)((int)a | (int)b);
 }
 
 //! \brief Logical AND operator for XsDeviceOptionFlag values
 inline XsDeviceOptionFlag operator & (XsDeviceOptionFlag a, XsDeviceOptionFlag b)
 {
-	return (XsDeviceOptionFlag) ((int)a & (int)b);
+	return (XsDeviceOptionFlag)((int)a & (int)b);
 }
 
 //! \brief Logical XOR operator for XsDeviceOptionFlag values
 inline XsDeviceOptionFlag operator ^ (XsDeviceOptionFlag a, XsDeviceOptionFlag b)
 {
-	return (XsDeviceOptionFlag) ((int)a ^ (int)b);
+	return (XsDeviceOptionFlag)((int)a ^ (int)b);
 }
 
 //! \brief Logical NEG operator for XsDeviceOptionFlag values
-inline XsDeviceOptionFlag operator ~ (XsDeviceOptionFlag a)
+inline XsDeviceOptionFlag operator ~(XsDeviceOptionFlag a)
 {
-	return (XsDeviceOptionFlag) (~(int)a);
+	return (XsDeviceOptionFlag)(~(int)a);
 }
 #endif
 

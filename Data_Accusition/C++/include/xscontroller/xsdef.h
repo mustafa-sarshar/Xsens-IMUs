@@ -1,5 +1,5 @@
 
-//  Copyright (c) 2003-2020 Xsens Technologies B.V. or subsidiaries worldwide.
+//  Copyright (c) 2003-2021 Xsens Technologies B.V. or subsidiaries worldwide.
 //  All rights reserved.
 //  
 //  Redistribution and use in source and binary forms, with or without modification,
@@ -92,7 +92,7 @@
 #define XS_LEN_XMERRORMODE				2
 #define XS_LEN_BUFFERSIZE				2
 #define XS_LEN_HEADING					4
-#define XS_LEN_MAGNETICFIELD		 	12
+#define XS_LEN_MAGNETICFIELD			12
 #define XS_LEN_LOCATIONID				2
 #define XS_LEN_EXTOUTPUTMODE			2
 #define XS_LEN_INITTRACKMODE			2
@@ -288,37 +288,37 @@
 #define	XS_PERIOD_512HZ			225
 
 #ifndef NOT_FOR_PUBLIC_RELEASE
-#define	XS_PERIOD_576HZ			200
-#define	XS_PERIOD_600HZ			192
-#define	XS_PERIOD_640HZ			180
-#define	XS_PERIOD_720HZ			160
-#define	XS_PERIOD_768HZ			150
-#define	XS_PERIOD_800HZ			144
-#define	XS_PERIOD_900HZ			128
-#define	XS_PERIOD_960HZ			120
-#define	XS_PERIOD_1152HZ		100
-#define	XS_PERIOD_1200HZ		96
-#define	XS_PERIOD_1280HZ		90
-#define	XS_PERIOD_1440HZ		80
-#define	XS_PERIOD_1536HZ		75
-#define	XS_PERIOD_1600HZ		72
-#define	XS_PERIOD_1800HZ		64
-#define	XS_PERIOD_1920HZ		60
-#define	XS_PERIOD_2304HZ		50
-#define	XS_PERIOD_2400HZ		48
-#define	XS_PERIOD_2560HZ		45
-#define	XS_PERIOD_2880HZ		40
-#define	XS_PERIOD_3200HZ		36
-#define	XS_PERIOD_3600HZ		32
-#define	XS_PERIOD_3840HZ		30
-#define	XS_PERIOD_4608HZ		25
-#define	XS_PERIOD_4800HZ		24
-#define	XS_PERIOD_5760HZ		20
-#define	XS_PERIOD_6400HZ		18
-#define	XS_PERIOD_7200HZ		16
-#define	XS_PERIOD_7680HZ		15
-#define	XS_PERIOD_9600HZ		12
-#define	XS_PERIOD_11520HZ		10
+	#define	XS_PERIOD_576HZ			200
+	#define	XS_PERIOD_600HZ			192
+	#define	XS_PERIOD_640HZ			180
+	#define	XS_PERIOD_720HZ			160
+	#define	XS_PERIOD_768HZ			150
+	#define	XS_PERIOD_800HZ			144
+	#define	XS_PERIOD_900HZ			128
+	#define	XS_PERIOD_960HZ			120
+	#define	XS_PERIOD_1152HZ		100
+	#define	XS_PERIOD_1200HZ		96
+	#define	XS_PERIOD_1280HZ		90
+	#define	XS_PERIOD_1440HZ		80
+	#define	XS_PERIOD_1536HZ		75
+	#define	XS_PERIOD_1600HZ		72
+	#define	XS_PERIOD_1800HZ		64
+	#define	XS_PERIOD_1920HZ		60
+	#define	XS_PERIOD_2304HZ		50
+	#define	XS_PERIOD_2400HZ		48
+	#define	XS_PERIOD_2560HZ		45
+	#define	XS_PERIOD_2880HZ		40
+	#define	XS_PERIOD_3200HZ		36
+	#define	XS_PERIOD_3600HZ		32
+	#define	XS_PERIOD_3840HZ		30
+	#define	XS_PERIOD_4608HZ		25
+	#define	XS_PERIOD_4800HZ		24
+	#define	XS_PERIOD_5760HZ		20
+	#define	XS_PERIOD_6400HZ		18
+	#define	XS_PERIOD_7200HZ		16
+	#define	XS_PERIOD_7680HZ		15
+	#define	XS_PERIOD_9600HZ		12
+	#define	XS_PERIOD_11520HZ		10
 #endif
 
 /*! \cond XS_INTERNAL */

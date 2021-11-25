@@ -1,5 +1,5 @@
 
-//  Copyright (c) 2003-2020 Xsens Technologies B.V. or subsidiaries worldwide.
+//  Copyright (c) 2003-2021 Xsens Technologies B.V. or subsidiaries worldwide.
 //  All rights reserved.
 //  
 //  Redistribution and use in source and binary forms, with or without modification,
@@ -80,12 +80,12 @@
 
 namespace xsens
 {
-	namespace DebugTools
-	{
-		void mathThrowBreakFunc();
-		void enableFloatingPointExceptions();
-		void disableFloatingPointExceptions();
-	} // namespace DebugTools
+namespace DebugTools
+{
+void mathThrowBreakFunc();
+void enableFloatingPointExceptions();
+void disableFloatingPointExceptions();
+} // namespace DebugTools
 } // namespace xsens
 
 #endif

@@ -1,5 +1,5 @@
 
-//  Copyright (c) 2003-2020 Xsens Technologies B.V. or subsidiaries worldwide.
+//  Copyright (c) 2003-2021 Xsens Technologies B.V. or subsidiaries worldwide.
 //  All rights reserved.
 //  
 //  Redistribution and use in source and binary forms, with or without modification,
@@ -34,12 +34,12 @@
 #define XPRINTF_H
 
 #ifdef __cplusplus
-#include <string>
+	#include <string>
 
-std::string _xprintf_b(char const* fmt_str, int marker, ...);
-std::string _xprintf_b(std::string const& fmt_str, int marker, ...);
+	std::string _xprintf_b(char const* fmt_str, int marker, ...);
+	std::string _xprintf_b(std::string const& fmt_str, int marker, ...);
 
-#define xprintf(fmt_str, ...) _xprintf_b(fmt_str, 0, ##__VA_ARGS__)
+	#define xprintf(fmt_str, ...) _xprintf_b(fmt_str, 0, ##__VA_ARGS__)
 
 #endif
 

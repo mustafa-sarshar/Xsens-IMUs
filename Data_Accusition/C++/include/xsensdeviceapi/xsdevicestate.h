@@ -1,6 +1,6 @@
 
-//  ==> COPYRIGHT (C) 2020 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE <==
-//  WARNING: COPYRIGHT (C) 2020 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE. ALL RIGHTS RESERVED.
+//  ==> COPYRIGHT (C) 2021 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE <==
+//  WARNING: COPYRIGHT (C) 2021 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE. ALL RIGHTS RESERVED.
 //  THIS FILE AND THE SOURCE CODE IT CONTAINS (AND/OR THE BINARY CODE FILES FOUND IN THE SAME
 //  FOLDER THAT CONTAINS THIS FILE) AND ALL RELATED SOFTWARE (COLLECTIVELY, "CODE") ARE SUBJECT
 //  TO AN END USER LICENSE AGREEMENT ("AGREEMENT") BETWEEN XSENS AS LICENSOR AND THE AUTHORIZED
@@ -33,7 +33,8 @@
 
 //AUTO namespace xscontroller {
 /*! \brief XsDevice state identifiers */
-enum XsDeviceState {
+enum XsDeviceState
+{
 	XDS_Initial,					/*!< Initial unknown state */
 	XDS_Config,						/*!< Configuration mode. */
 	XDS_Measurement,				/*!< Measurement mode, devices are transmitting data. */
@@ -51,7 +52,7 @@ extern "C" {
 #endif
 
 /*! \brief Convert the device state to a human readable string */
-const char *XsDeviceState_toString(XsDeviceState s);
+XDA_DLL_API const char* XsDeviceState_toString(XsDeviceState s);
 
 #ifdef __cplusplus
 } // extern "C"

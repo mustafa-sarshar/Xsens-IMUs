@@ -1,6 +1,6 @@
 
-//  ==> COPYRIGHT (C) 2020 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE <==
-//  WARNING: COPYRIGHT (C) 2020 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE. ALL RIGHTS RESERVED.
+//  ==> COPYRIGHT (C) 2021 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE <==
+//  WARNING: COPYRIGHT (C) 2021 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE. ALL RIGHTS RESERVED.
 //  THIS FILE AND THE SOURCE CODE IT CONTAINS (AND/OR THE BINARY CODE FILES FOUND IN THE SAME
 //  FOLDER THAT CONTAINS THIS FILE) AND ALL RELATED SOFTWARE (COLLECTIVELY, "CODE") ARE SUBJECT
 //  TO AN END USER LICENSE AGREEMENT ("AGREEMENT") BETWEEN XSENS AS LICENSOR AND THE AUTHORIZED
@@ -34,9 +34,9 @@ struct XsDeviceParameter;
 #endif
 
 /*!
- *	\class XsDeviceParameter
- *	\brief Class to set and retrieve parameters from a XsDevice object.
- */
+	\class XsDeviceParameter
+	\brief Class to set and retrieve parameters from a XsDevice object.
+*/
 struct XsDeviceParameter
 {
 #ifdef __cplusplus
@@ -61,17 +61,17 @@ struct XsDeviceParameter
 	}
 
 	/*!
-	 *	\brief Returns the stored parameter value.
-	 *	\returns The parameter value in the desired type.
-	 */
+		\brief Returns the stored parameter value.
+		\returns The parameter value in the desired type.
+	*/
 	template<typename T>
 	T getValue() const;
 
 
 	/*!
-	 *	\brief Sets the parameter value.
-	 *	\param value: the desired parameter value.
-	 */
+		\brief Sets the parameter value.
+		\param value: the desired parameter value.
+	*/
 	template<typename T>
 	void setValue(T value);
 
@@ -122,7 +122,7 @@ inline int XsDeviceParameter::getValue<int>() const
 template<>
 inline void XsDeviceParameter::setValue<bool>(bool value)
 {
-	m_value = value ? 1 :0;
+	m_value = value ? 1 : 0;
 }
 
 //! \copydoc XsDeviceParameter::setValue

@@ -1,5 +1,5 @@
 
-//  Copyright (c) 2003-2020 Xsens Technologies B.V. or subsidiaries worldwide.
+//  Copyright (c) 2003-2021 Xsens Technologies B.V. or subsidiaries worldwide.
 //  All rights reserved.
 //  
 //  Redistribution and use in source and binary forms, with or without modification,
@@ -41,10 +41,11 @@
 /*! \brief GNSS status flags
 	\details The Flags contain bits the indicate the operational status of the GNSS module
 */
-enum XsGnssStatusFlag {
-	 XGSF_GnssReceiverInitialized	= 0x01	//! GNSS receiver has been initialized succesfully
-	,XGSF_GnssReceiverDataOk		= 0x02	//! GNSS receiver has correctly received Data
-	,XGSF_AntennaDetectionMask		= 0x70	//! 3-Bit field indicating the status of the GNSS antenna
+enum XsGnssStatusFlag
+{
+	XGSF_GnssReceiverInitialized	= 0x01	//! GNSS receiver has been initialized succesfully
+	, XGSF_GnssReceiverDataOk		= 0x02	//! GNSS receiver has correctly received Data
+	, XGSF_AntennaDetectionMask		= 0x70	//! 3-Bit field indicating the status of the GNSS antenna
 };
 
 /*! \brief GNSS status flags offsets
@@ -53,15 +54,17 @@ enum XsGnssStatusFlag {
 	offsets.
 	\sa XsGnssStatusFlag
 */
-enum XsGnssStatusFlagOffset {
-	 XGSFO_OffsetGnssReceiverInitialized	= 0
-	,XGSFO_OffsetGnssReceiverDataOk			= 1
-	,XGSFO_OffsetAntennaDetection 			= 4
+enum XsGnssStatusFlagOffset
+{
+	XGSFO_OffsetGnssReceiverInitialized	= 0
+	, XGSFO_OffsetGnssReceiverDataOk			= 1
+	, XGSFO_OffsetAntennaDetection			= 4
 };
 
 /*! \brief Contains flags indicating the status of the GNSS antenna
 */
-enum XsGnssAntennaStatus {
+enum XsGnssAntennaStatus
+{
 	XGAS_OpenCircuit = 0,	//! No antenna is connected to the antenne port
 	XGAS_ShortCircuit = 1,	//! The antennaconnector seems to be shorted with Ground
 	XGAS_OK = 2,			//! Everything seems ok, antenna connected
@@ -76,7 +79,8 @@ typedef enum XsGnssAntennaStatus XsGnssAntennaStatus;
 
 /*! \brief Contains flags indicating the opperational status of the GNSS module
 */
-struct XsGnssStatus {
+struct XsGnssStatus
+{
 	uint8_t m_flags;		//!< Flags that specify which tests have passed
 
 #ifdef __cplusplus
@@ -110,4 +114,4 @@ struct XsGnssStatus {
 
 typedef struct XsGnssStatus XsGnssStatus;
 
-#endif	// file guard
+#endif

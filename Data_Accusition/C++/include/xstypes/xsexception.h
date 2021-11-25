@@ -1,5 +1,5 @@
 
-//  Copyright (c) 2003-2020 Xsens Technologies B.V. or subsidiaries worldwide.
+//  Copyright (c) 2003-2021 Xsens Technologies B.V. or subsidiaries worldwide.
 //  All rights reserved.
 //  
 //  Redistribution and use in source and binary forms, with or without modification,
@@ -42,7 +42,8 @@
 
 /*! \brief Exception class for Xsens public libraries. Inherits from std::exception
 */
-class XsException : public std::exception {
+class XsException : public std::exception
+{
 public:
 	//! \brief Copy constructor
 	XsException(XsException const& e)

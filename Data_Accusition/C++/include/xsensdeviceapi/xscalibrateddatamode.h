@@ -1,6 +1,6 @@
 
-//  ==> COPYRIGHT (C) 2020 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE <==
-//  WARNING: COPYRIGHT (C) 2020 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE. ALL RIGHTS RESERVED.
+//  ==> COPYRIGHT (C) 2021 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE <==
+//  WARNING: COPYRIGHT (C) 2021 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE. ALL RIGHTS RESERVED.
 //  THIS FILE AND THE SOURCE CODE IT CONTAINS (AND/OR THE BINARY CODE FILES FOUND IN THE SAME
 //  FOLDER THAT CONTAINS THIS FILE) AND ALL RELATED SOFTWARE (COLLECTIVELY, "CODE") ARE SUBJECT
 //  TO AN END USER LICENSE AGREEMENT ("AGREEMENT") BETWEEN XSENS AS LICENSOR AND THE AUTHORIZED
@@ -28,17 +28,18 @@
 	@{
 */
 /*! \brief Legacy calibrated data output selection flags */
-enum XsCalibratedDataMode {
+enum XsCalibratedDataMode
+{
 	XCDM_None			= 0,
 	XCDM_Acceleration	= (1 << 0),
 	XCDM_GyroscopeData	= (1 << 1),
 	XCDM_MagneticField	= (1 << 2),
 
-	XCDM_AccGyr = XCDM_Acceleration|XCDM_GyroscopeData,
-	XCDM_AccMag = XCDM_Acceleration|XCDM_MagneticField,
-	XCDM_GyrMag = XCDM_GyroscopeData|XCDM_MagneticField,
+	XCDM_AccGyr = XCDM_Acceleration | XCDM_GyroscopeData,
+	XCDM_AccMag = XCDM_Acceleration | XCDM_MagneticField,
+	XCDM_GyrMag = XCDM_GyroscopeData | XCDM_MagneticField,
 
-	XCDM_All = XCDM_Acceleration|XCDM_GyroscopeData|XCDM_MagneticField
+	XCDM_All = XCDM_Acceleration | XCDM_GyroscopeData | XCDM_MagneticField
 };
 /*! @} */
 typedef enum XsCalibratedDataMode XsCalibratedDataMode;

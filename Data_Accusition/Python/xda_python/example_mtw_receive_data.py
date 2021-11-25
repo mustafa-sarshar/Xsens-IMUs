@@ -68,7 +68,6 @@ if __name__ == '__main__':
         print("Device: %s, with ID: %s opened." % (device.productCode(), device.deviceId().toXsString()))
 
         # Create and attach callback handler to device
-
         callback = XdaCallback()
         device.addCallbackHandler(callback)        
 
@@ -83,24 +82,27 @@ if __name__ == '__main__':
         configArray.push_back(xda.XsOutputConfiguration(xda.XDI_SampleTimeFine, 0))        
 
         if device.deviceId().isImu():
+            print("isIMU")
             configArray.push_back(xda.XsOutputConfiguration(xda.XDI_DeltaV, 0))
             configArray.push_back(xda.XsOutputConfiguration(xda.XDI_DeltaQ, 0))
             configArray.push_back(xda.XsOutputConfiguration(xda.XDI_MagneticField, 0))
         elif device.deviceId().isVru() or device.deviceId().isAhrs():
+            print("isAhrs")
             configArray.push_back(xda.XsOutputConfiguration(xda.XDI_Quaternion, 0))
         elif device.deviceId().isGnss():
+            print("isGnss")
             configArray.push_back(xda.XsOutputConfiguration(xda.XDI_Quaternion, 0))
             configArray.push_back(xda.XsOutputConfiguration(xda.XDI_LatLon, 0))
             configArray.push_back(xda.XsOutputConfiguration(xda.XDI_AltitudeEllipsoid, 0))
             configArray.push_back(xda.XsOutputConfiguration(xda.XDI_VelocityXYZ, 0))
         elif device.deviceId().isAwinda2Station():
-            # configArray.push_back(xda.XsOutputConfiguration(xda.XDI_Quaternion, 0))
+            print("isAwinda2Station")
             configArray.push_back(xda.XsOutputConfiguration(xda.XDI_Quaternion, 0))
         else:
             raise RuntimeError("Unknown device while configuring. Aborting.")
 
-        # if not device.setOutputConfiguration(configArray):
-            # raise RuntimeError("Could not configure the device. Aborting.")       
+        if not device.setOutputConfiguration(configArray):
+            raise RuntimeError("Could not configure the device. Aborting.")       
 
         print("Creating a log file...")
         logFileName = "logfile.mtb"

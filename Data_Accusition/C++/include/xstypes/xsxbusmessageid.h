@@ -1,5 +1,5 @@
 
-//  Copyright (c) 2003-2020 Xsens Technologies B.V. or subsidiaries worldwide.
+//  Copyright (c) 2003-2021 Xsens Technologies B.V. or subsidiaries worldwide.
 //  All rights reserved.
 //  
 //  Redistribution and use in source and binary forms, with or without modification,
@@ -38,7 +38,8 @@
 */
 /*! \brief Xsens Xbus Message Identifiers
 */
-enum XsXbusMessageId {
+enum XsXbusMessageId
+{
 	XMID_InvalidMessage             = 0x00,
 
 	// Config state messages
@@ -332,6 +333,9 @@ enum XsXbusMessageId {
 	XMID_StoreEmts                  = 0x96,
 	XMID_StoreEmtsAck               = 0x97,
 
+	XMID_UnlockMaintenanceMode      = 0x98,
+	XMID_UnlockMaintenanceModeAck   = 0x99,
+
 	XMID_ClockSyncCommand           = 0x9A,
 	XMID_ClockSyncCommandAck        = 0x9B,
 
@@ -357,10 +361,10 @@ enum XsXbusMessageId {
 	XMID_AdjustUtcTime              = 0xA8,
 	XMID_AdjustUtcTimeAck           = 0xA9,
 
-	XMID_ReqManufacturerId          = 0xAA,
-	XMID_SetManufacturerId          = 0xAA,
-	XMID_ManufacturerId             = 0xAB,
-	XMID_SetManufacturerIdAck       = 0xAB,
+	XMID_ReqAssemblyId              = 0xAA,
+	XMID_SetAssemblyId              = 0xAA,
+	XMID_AssemblyId                 = 0xAB,
+	XMID_SetAssemblyIdAck           = 0xAB,
 
 	XMID_ReqGnssReceiverSettings    = 0xAC,
 	XMID_ReqGnssReceiverSettingsAck = 0xAD,

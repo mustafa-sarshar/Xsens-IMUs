@@ -1,5 +1,5 @@
 
-//  Copyright (c) 2003-2020 Xsens Technologies B.V. or subsidiaries worldwide.
+//  Copyright (c) 2003-2021 Xsens Technologies B.V. or subsidiaries worldwide.
 //  All rights reserved.
 //  
 //  Redistribution and use in source and binary forms, with or without modification,
@@ -57,7 +57,7 @@ enum XsCanConfigIdentifier
 /*! @} */
 
 #if __cplusplus >= 201103L || _MSVC_LANG >= 201103L
-static_assert(int(XCCI_LowestIdentifier) >= int(XCDI_HighestIdentifier), "XsCanConfigIdentifier and XsCanDataIdentifier ranges must be mutually exclusive");
+	static_assert(int(XCCI_LowestIdentifier) >= int(XCDI_HighestIdentifier), "XsCanConfigIdentifier and XsCanDataIdentifier ranges must be mutually exclusive");
 #endif
 
 typedef enum XsCanConfigIdentifier XsCanConfigIdentifier;

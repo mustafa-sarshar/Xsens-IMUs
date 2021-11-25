@@ -1,5 +1,5 @@
 
-//  Copyright (c) 2003-2020 Xsens Technologies B.V. or subsidiaries worldwide.
+//  Copyright (c) 2003-2021 Xsens Technologies B.V. or subsidiaries worldwide.
 //  All rights reserved.
 //  
 //  Redistribution and use in source and binary forms, with or without modification,
@@ -58,16 +58,17 @@ XSTYPES_DLL_API void XsStringArray_join(struct XsStringArray const* thisPtr, str
 #ifdef __cplusplus
 } // extern "C"
 
-struct XsStringArray : public XsArrayImpl<XsString, g_xsStringArrayDescriptor, XsStringArray> {
+struct XsStringArray : public XsArrayImpl<XsString, g_xsStringArrayDescriptor, XsStringArray>
+{
 	//! \brief Constructs an XsStringArray
 	inline explicit XsStringArray(XsSize sz = 0, XsString const* src = 0)
-		 : ArrayImpl(sz, src)
+		: ArrayImpl(sz, src)
 	{
 	}
 
 	//! \brief Constructs an XsStringArray as a copy of \a other
 	inline XsStringArray(XsStringArray const& other)
-		 : ArrayImpl(other)
+		: ArrayImpl(other)
 	{
 	}
 

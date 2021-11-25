@@ -1,6 +1,6 @@
 
-//  ==> COPYRIGHT (C) 2020 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE <==
-//  WARNING: COPYRIGHT (C) 2020 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE. ALL RIGHTS RESERVED.
+//  ==> COPYRIGHT (C) 2021 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE <==
+//  WARNING: COPYRIGHT (C) 2021 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE. ALL RIGHTS RESERVED.
 //  THIS FILE AND THE SOURCE CODE IT CONTAINS (AND/OR THE BINARY CODE FILES FOUND IN THE SAME
 //  FOLDER THAT CONTAINS THIS FILE) AND ALL RELATED SOFTWARE (COLLECTIVELY, "CODE") ARE SUBJECT
 //  TO AN END USER LICENSE AGREEMENT ("AGREEMENT") BETWEEN XSENS AS LICENSOR AND THE AUTHORIZED
@@ -28,11 +28,12 @@
 	@{
 */
 //! Protocol types (XsDevice::enableProtocol())
-enum XsProtocolType {
-	 XPT_Xbus = 0		//!< The Xsens Xbus protocol, enabled by default, always 0
-	,XPT_Nmea			//!< The NMEA protocol, only the messages that can be sent from Xsens devices are recognized
-	,XPT_ImarFsas		//!< An iMAR FSAS communication protocol
-	,XPT_ImarIfog		//!< An iMAR iFog communication protocol
+enum XsProtocolType
+{
+	XPT_Xbus = 0		//!< The Xsens Xbus protocol, enabled by default, always 0
+	, XPT_Nmea			//!< The NMEA protocol, only the messages that can be sent from Xsens devices are recognized
+	, XPT_ImarFsas		//!< An iMAR FSAS communication protocol
+	, XPT_ImarIfog		//!< An iMAR iFog communication protocol
 };
 /*! @} */
 typedef enum XsProtocolType XsProtocolType;

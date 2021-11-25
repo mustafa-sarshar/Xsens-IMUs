@@ -1,6 +1,6 @@
 
-//  ==> COPYRIGHT (C) 2020 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE <==
-//  WARNING: COPYRIGHT (C) 2020 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE. ALL RIGHTS RESERVED.
+//  ==> COPYRIGHT (C) 2021 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE <==
+//  WARNING: COPYRIGHT (C) 2021 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE. ALL RIGHTS RESERVED.
 //  THIS FILE AND THE SOURCE CODE IT CONTAINS (AND/OR THE BINARY CODE FILES FOUND IN THE SAME
 //  FOLDER THAT CONTAINS THIS FILE) AND ALL RELATED SOFTWARE (COLLECTIVELY, "CODE") ARE SUBJECT
 //  TO AN END USER LICENSE AGREEMENT ("AGREEMENT") BETWEEN XSENS AS LICENSOR AND THE AUTHORIZED
@@ -45,13 +45,13 @@ typedef enum XsRejectReason XsRejectReason;
 extern "C" {
 #endif
 
-XDA_DLL_API const char *XsRejectReason_toString(XsRejectReason r);
+XDA_DLL_API const char* XsRejectReason_toString(XsRejectReason r);
 
 #ifdef __cplusplus
 } // extern "C"
 
 /*! \brief \copybrief XsRejectReason_toString \sa XsRejectReason_toString */
-inline const char *toString(XsRejectReason r)
+inline const char* toString(XsRejectReason r)
 {
 	return XsRejectReason_toString(r);
 }

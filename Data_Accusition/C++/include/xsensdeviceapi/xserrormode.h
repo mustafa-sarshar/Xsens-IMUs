@@ -1,6 +1,6 @@
 
-//  ==> COPYRIGHT (C) 2020 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE <==
-//  WARNING: COPYRIGHT (C) 2020 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE. ALL RIGHTS RESERVED.
+//  ==> COPYRIGHT (C) 2021 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE <==
+//  WARNING: COPYRIGHT (C) 2021 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE. ALL RIGHTS RESERVED.
 //  THIS FILE AND THE SOURCE CODE IT CONTAINS (AND/OR THE BINARY CODE FILES FOUND IN THE SAME
 //  FOLDER THAT CONTAINS THIS FILE) AND ALL RELATED SOFTWARE (COLLECTIVELY, "CODE") ARE SUBJECT
 //  TO AN END USER LICENSE AGREEMENT ("AGREEMENT") BETWEEN XSENS AS LICENSOR AND THE AUTHORIZED
@@ -30,12 +30,13 @@
 /*! \brief Error modes for use in XsDevice::setErrorMode
 	\sa XsDevice::setErrorMode \sa XsDevice::errorMode
 */
-enum XsErrorMode {
-	 XEM_Ignore = 0x0000					//!< Ignore all errors without warning
-	,XEM_IncreasePacketCounter = 0x0001		//!< Increase packet counter when an error occurs, resulting in gaps in the packet counter
-	,XEM_IncreasePacketCounterAndSendError = 0x0002	//!< Increase packet counter when an error occurs, resulting in gaps in the packet counter and send an explicit error message
-	,XEM_SendErrorAndGoToConfig = 0x0003	//!< Abort measuring and send an error message
-	,XEM_Invalid							//!< No error mode available
+enum XsErrorMode
+{
+	XEM_Ignore = 0x0000					//!< Ignore all errors without warning
+	, XEM_IncreasePacketCounter = 0x0001		//!< Increase packet counter when an error occurs, resulting in gaps in the packet counter
+	, XEM_IncreasePacketCounterAndSendError = 0x0002	//!< Increase packet counter when an error occurs, resulting in gaps in the packet counter and send an explicit error message
+	, XEM_SendErrorAndGoToConfig = 0x0003	//!< Abort measuring and send an error message
+	, XEM_Invalid							//!< No error mode available
 };
 /*! @} */
 typedef enum XsErrorMode XsErrorMode;

@@ -1,5 +1,5 @@
 
-//  Copyright (c) 2003-2020 Xsens Technologies B.V. or subsidiaries worldwide.
+//  Copyright (c) 2003-2021 Xsens Technologies B.V. or subsidiaries worldwide.
 //  All rights reserved.
 //  
 //  Redistribution and use in source and binary forms, with or without modification,
@@ -63,6 +63,9 @@ typedef struct
 	uint8_t m_addressLength;		/*!< Address length*/
 	uint16_t m_pageSize;			/*!< Page size*/
 	uint16_t m_sliceSize;			/*!< Slice size*/
+	uint8_t m_hardwareVersion[2];	/*!< Hardware version (only in xff version > 2)*/
+	char m_productCode[20];			/*!< Product code (only in xff version > 3)*/
+	uint32_t m_productVariant;		/*!< Product variant (only in xff version > 3)*/
 } XffHeader;
 
 
@@ -93,7 +96,7 @@ typedef struct
 		\param length Number of bytes which is requested
 		\returns Number of bytes which is actually written to the buffer
 	*/
-	uint32_t (*m_readXffData)(uint8_t *buffer, uint32_t offset, uint32_t length);
+	uint32_t (*m_readXffData)(uint8_t* buffer, uint32_t offset, uint32_t length);
 
 	/*!	\brief Callback function via which FwUpdate can send xbus messages to the module
 		\param xbusMessage Xbus message that should be send to the module
@@ -108,7 +111,7 @@ typedef struct
 	/*!	\brief Memory needed by the FwUpdate. Host must allocate a block of memory
 		of size FWU_REQUIRED_TXBUFFER_SIZE
 	*/
-	uint8_t *m_txBuffer;
+	uint8_t* m_txBuffer;
 
 	/*	State variables for internal use (the user must not touch these) */
 	FWU_State m_state;				/*!< Internal state member of FwUpdate*/
@@ -122,11 +125,11 @@ typedef struct
 } FwUpdate;
 
 
-void FwUpdate_init(FwUpdate *thisPtr);
+void FwUpdate_init(FwUpdate* thisPtr);
 
-void FwUpdate_start(FwUpdate *thisPtr);
+void FwUpdate_start(FwUpdate* thisPtr);
 
-void FwUpdate_handleXbus(FwUpdate *thisPtr, uint8_t const *xbusMessage);
+void FwUpdate_handleXbus(FwUpdate* thisPtr, uint8_t const* xbusMessage);
 
 
 #ifdef __cplusplus
@@ -134,4 +137,4 @@ void FwUpdate_handleXbus(FwUpdate *thisPtr, uint8_t const *xbusMessage);
 #endif /* extern "C" */
 
 
-#endif /* FWUPDATE_H */
+#endif

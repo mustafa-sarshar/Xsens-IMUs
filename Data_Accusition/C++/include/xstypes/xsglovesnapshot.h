@@ -1,5 +1,5 @@
 
-//  Copyright (c) 2003-2020 Xsens Technologies B.V. or subsidiaries worldwide.
+//  Copyright (c) 2003-2021 Xsens Technologies B.V. or subsidiaries worldwide.
 //  All rights reserved.
 //  
 //  Redistribution and use in source and binary forms, with or without modification,
@@ -43,8 +43,8 @@ extern "C" {
 #endif
 #ifndef __cplusplus
 #define XSGLOVESNAPSHOT_INITIALIZER {0, 0, 0, 0, \
-										XSFINGERSNAPSHOT_INITIALIZER, XSFINGERSNAPSHOT_INITIALIZER, XSFINGERSNAPSHOT_INITIALIZER, XSFINGERSNAPSHOT_INITIALIZER, XSFINGERSNAPSHOT_INITIALIZER, XSFINGERSNAPSHOT_INITIALIZER, \
-										XSFINGERSNAPSHOT_INITIALIZER, XSFINGERSNAPSHOT_INITIALIZER, XSFINGERSNAPSHOT_INITIALIZER, XSFINGERSNAPSHOT_INITIALIZER, XSFINGERSNAPSHOT_INITIALIZER, XSFINGERSNAPSHOT_INITIALIZER}
+		XSFINGERSNAPSHOT_INITIALIZER, XSFINGERSNAPSHOT_INITIALIZER, XSFINGERSNAPSHOT_INITIALIZER, XSFINGERSNAPSHOT_INITIALIZER, XSFINGERSNAPSHOT_INITIALIZER, XSFINGERSNAPSHOT_INITIALIZER, \
+		XSFINGERSNAPSHOT_INITIALIZER, XSFINGERSNAPSHOT_INITIALIZER, XSFINGERSNAPSHOT_INITIALIZER, XSFINGERSNAPSHOT_INITIALIZER, XSFINGERSNAPSHOT_INITIALIZER, XSFINGERSNAPSHOT_INITIALIZER}
 #define XSFINGERSNAPSHOT_INITIALIZER {0,0,0, 0,0,0, 0,0,0, 0, 0, 0}
 #endif
 
@@ -57,7 +57,8 @@ extern "C" {
 XS_PACKED_STRUCT_START
 /*! \brief int24
 */
-struct int24_t {
+struct int24_t
+{
 	uint8_t m_vals[3]; /*!< \brief The data*/
 
 #ifdef __cplusplus
@@ -80,7 +81,8 @@ typedef struct int24_t int24_t;
 
 /*! \brief A container for Finger Snapshot data
 */
-struct XsFingerSnapshot {
+struct XsFingerSnapshot
+{
 	int24_t m_iQ[3];		/*!< \brief The integrated orientation */
 	int32_t m_iV[3];		/*!< \brief The integrated velocity */
 	int16_t m_mag[3];		/*!< \brief The magnetic field */

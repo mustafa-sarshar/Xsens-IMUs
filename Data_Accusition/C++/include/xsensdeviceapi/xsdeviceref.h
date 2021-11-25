@@ -1,6 +1,6 @@
 
-//  ==> COPYRIGHT (C) 2020 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE <==
-//  WARNING: COPYRIGHT (C) 2020 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE. ALL RIGHTS RESERVED.
+//  ==> COPYRIGHT (C) 2021 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE <==
+//  WARNING: COPYRIGHT (C) 2021 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE. ALL RIGHTS RESERVED.
 //  THIS FILE AND THE SOURCE CODE IT CONTAINS (AND/OR THE BINARY CODE FILES FOUND IN THE SAME
 //  FOLDER THAT CONTAINS THIS FILE) AND ALL RELATED SOFTWARE (COLLECTIVELY, "CODE") ARE SUBJECT
 //  TO AN END USER LICENSE AGREEMENT ("AGREEMENT") BETWEEN XSENS AS LICENSOR AND THE AUTHORIZED
@@ -70,35 +70,56 @@ public:
 	/*! \brief Structure dereference. Return m_device pointer
 		\returns XsDevice pointer
 	*/
-	XsDevice *operator->() const { return m_device; }
+	XsDevice* operator->() const
+	{
+		return m_device;
+	}
 
 	/*! \brief Equal to operator. Compare device pointers
 		\param other The pointer to compare device pointer to
 		\returns true if the pointers are equal
 	*/
-	bool operator==(XsDeviceRef const& other) const {return m_device == other.m_device;}
+	bool operator==(XsDeviceRef const& other) const
+	{
+		return m_device == other.m_device;
+	}
 
 	/*! \brief Not equal to operator. Compare device pointers
 		\param other The pointer to compare device pointer to
 		\returns true if the pointers are not equal
 	*/
-	bool operator!=(XsDeviceRef const& other) const {return m_device != other.m_device;}
+	bool operator!=(XsDeviceRef const& other) const
+	{
+		return m_device != other.m_device;
+	}
 
 	/*! \brief Equal to operator. Compare device pointers
 		\param other The pointer to compare device pointer to
 		\returns true if the pointers are equal
 	*/
-	bool operator==(const XsDevice* other) const {return m_device == other;}
+	bool operator==(const XsDevice* other) const
+	{
+		return m_device == other;
+	}
 
 	/*! \brief Not equal to operator. Compare device pointers
 		\param other The pointer to compare device pointer to
 		\returns true if the pointers are not equal
 	*/
-	bool operator!=(const XsDevice* other) const {return m_device != other;}
+	bool operator!=(const XsDevice* other) const
+	{
+		return m_device != other;
+	}
 	/*! \brief Indirection operator. Return device pointer */
-	operator XsDevice *() {return m_device; }
+	operator XsDevice* ()
+	{
+		return m_device;
+	}
 	/*! \brief Logical negation operator */
-	bool operator!() const {return !m_device;}
+	bool operator!() const
+	{
+		return !m_device;
+	}
 
 	/*! \brief Call XsDevices' addRef
 	*/
@@ -117,7 +138,7 @@ public:
 	}
 
 private:
-//! \protectedsection
+	//! \protectedsection
 	XsDevice* m_device;	//!< The referenced XsDevice
 };
 

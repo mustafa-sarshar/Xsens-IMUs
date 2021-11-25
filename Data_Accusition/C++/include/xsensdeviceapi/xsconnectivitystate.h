@@ -1,6 +1,6 @@
 
-//  ==> COPYRIGHT (C) 2020 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE <==
-//  WARNING: COPYRIGHT (C) 2020 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE. ALL RIGHTS RESERVED.
+//  ==> COPYRIGHT (C) 2021 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE <==
+//  WARNING: COPYRIGHT (C) 2021 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE. ALL RIGHTS RESERVED.
 //  THIS FILE AND THE SOURCE CODE IT CONTAINS (AND/OR THE BINARY CODE FILES FOUND IN THE SAME
 //  FOLDER THAT CONTAINS THIS FILE) AND ALL RELATED SOFTWARE (COLLECTIVELY, "CODE") ARE SUBJECT
 //  TO AN END USER LICENSE AGREEMENT ("AGREEMENT") BETWEEN XSENS AS LICENSOR AND THE AUTHORIZED
@@ -24,10 +24,8 @@
 #ifndef XSCONNECTIVITYSTATE_H
 #define XSCONNECTIVITYSTATE_H
 
-#include "xscontrollerconfig.h"
-
 #ifdef __cplusplus
-#include <ostream>
+	#include <ostream>
 #endif
 
 /*!	\addtogroup enums Global enumerations
@@ -36,7 +34,8 @@
 
 //AUTO namespace xscontroller {
 /*! \brief XsDevice connectivity state identifiers */
-enum XsConnectivityState {
+enum XsConnectivityState
+{
 	XCS_Disconnected,		/*!< Device has disconnected, only limited informational functionality is available. */
 	XCS_Rejected,			/*!< Device has been rejected and is disconnected, only limited informational functionality is available. */
 	XCS_PluggedIn,			/*!< Device is connected through a cable. */
@@ -55,7 +54,7 @@ extern "C" {
 #endif
 
 /*! \brief Convert the device state to a human readable string */
-const char *XsConnectivityState_toString(XsConnectivityState s);
+XDA_DLL_API const char* XsConnectivityState_toString(XsConnectivityState s);
 
 #ifdef __cplusplus
 } // extern "C"
@@ -63,11 +62,11 @@ const char *XsConnectivityState_toString(XsConnectivityState s);
 #ifndef XSENS_NO_STL
 namespace std
 {
-	template<typename _CharT, typename _Traits>
-	basic_ostream<_CharT, _Traits>& operator<<(basic_ostream<_CharT, _Traits>& o, XsConnectivityState const& xs)
-	{
-		return (o << XsConnectivityState_toString(xs));
-	}
+template<typename _CharT, typename _Traits>
+basic_ostream<_CharT, _Traits>& operator<<(basic_ostream<_CharT, _Traits>& o, XsConnectivityState const& xs)
+{
+	return (o << XsConnectivityState_toString(xs));
+}
 }
 #endif
 #endif

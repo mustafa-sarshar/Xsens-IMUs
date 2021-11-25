@@ -1,6 +1,6 @@
 
-//  ==> COPYRIGHT (C) 2020 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE <==
-//  WARNING: COPYRIGHT (C) 2020 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE. ALL RIGHTS RESERVED.
+//  ==> COPYRIGHT (C) 2021 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE <==
+//  WARNING: COPYRIGHT (C) 2021 XSENS TECHNOLOGIES OR SUBSIDIARIES WORLDWIDE. ALL RIGHTS RESERVED.
 //  THIS FILE AND THE SOURCE CODE IT CONTAINS (AND/OR THE BINARY CODE FILES FOUND IN THE SAME
 //  FOLDER THAT CONTAINS THIS FILE) AND ALL RELATED SOFTWARE (COLLECTIVELY, "CODE") ARE SUBJECT
 //  TO AN END USER LICENSE AGREEMENT ("AGREEMENT") BETWEEN XSENS AS LICENSOR AND THE AUTHORIZED
@@ -55,13 +55,14 @@ int XDA_DLL_API  XsUsbHubInfo_parentPathMatches(const XsUsbHubInfo* thisPtr, con
 /*! \struct XsUsbHubInfo
 	\brief A structure that wraps USB hub information
 */
-struct XsUsbHubInfo {
+struct XsUsbHubInfo
+{
 #ifdef __cplusplus
 	/*! \brief Default constructor
 
-	  \param hubid an optional hub identifier to initialize with
-	  \sa XsUsbHubInfo_construct
-	 */
+		\param hubid an optional hub identifier to initialize with
+		\sa XsUsbHubInfo_construct
+	*/
 	explicit XsUsbHubInfo(XsHubIdentifier hubid = 0)
 		: m_hub(0)
 	{
@@ -76,10 +77,10 @@ struct XsUsbHubInfo {
 	}
 
 	/*! \brief Copy constructor
-	  \param other the object to copy
-	  \sa XsUsbHubInfo_copy \sa XsUsbHubInfo_construct
-	 */
-	XsUsbHubInfo(const XsUsbHubInfo &other)
+		\param other the object to copy
+		\sa XsUsbHubInfo_copy \sa XsUsbHubInfo_construct
+	*/
+	XsUsbHubInfo(const XsUsbHubInfo& other)
 		: m_hub(0)
 	{
 		if (other.m_hub)
@@ -87,11 +88,11 @@ struct XsUsbHubInfo {
 	}
 
 	/*! \brief Assigns \a other to this XsUsbHubInfo
-	   \param other the object to copy
-	   \returns a const reference to this info object
-	   \sa XsUsbHubInfo_copy
-	 */
-	const XsUsbHubInfo& operator=(const XsUsbHubInfo &other)
+		\param other the object to copy
+		\returns a const reference to this info object
+		\sa XsUsbHubInfo_copy
+	*/
+	const XsUsbHubInfo& operator=(const XsUsbHubInfo& other)
 	{
 		if (this != &other)
 			XsUsbHubInfo_copy(this, &other);
@@ -99,11 +100,11 @@ struct XsUsbHubInfo {
 	}
 
 	/*! \brief \copybrief XsUsbHubInfo_parentPathMatches
-	 * \param other the object to compare to
-	 * \returns true if the two objects share the same immediate parent hub, false otherwise
-	 * \sa XsUsbHubInfo_parentPathMatches
-	 */
-	bool parentPathMatches(const XsUsbHubInfo &other) const
+		 \param other the object to compare to
+		 \returns true if the two objects share the same immediate parent hub, false otherwise
+		 \sa XsUsbHubInfo_parentPathMatches
+	*/
+	bool parentPathMatches(const XsUsbHubInfo& other) const
 	{
 		return 0 != XsUsbHubInfo_parentPathMatches(this, &other);
 	}
@@ -123,10 +124,10 @@ struct XsUsbHubInfo {
 	}
 
 private:
-//! \protectedsection
+	//! \protectedsection
 #endif
 	XsHubIdentifier m_hub;		//!< The identifier of the USB hub
 };
 typedef struct XsUsbHubInfo XsUsbHubInfo;
 
-#endif	// file guard
+#endif

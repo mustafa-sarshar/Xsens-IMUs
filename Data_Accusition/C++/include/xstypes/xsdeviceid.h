@@ -1,5 +1,5 @@
 
-//  Copyright (c) 2003-2020 Xsens Technologies B.V. or subsidiaries worldwide.
+//  Copyright (c) 2003-2021 Xsens Technologies B.V. or subsidiaries worldwide.
 //  All rights reserved.
 //  
 //  Redistribution and use in source and binary forms, with or without modification,
@@ -290,7 +290,7 @@ struct XsDeviceId
 		return 0 != XsDeviceId_isMti8X0(this);
 	}
 	/*! \brief \copybrief XsDeviceId_isGlove(const struct XsDeviceId*) */
-	inline bool isGlove () const
+	inline bool isGlove() const
 	{
 		return 0 != XsDeviceId_isGlove(this);
 	}
@@ -556,7 +556,10 @@ struct XsDeviceId
 		}
 	}
 	/*! \brief Returns true if the \a other deviceId does not match this deviceId */
-	inline bool operator!=(const XsDeviceId& other) const { return !(*this == other); }
+	inline bool operator!=(const XsDeviceId& other) const
+	{
+		return !(*this == other);
+	}
 	/*! \brief Returns true if this deviceId is less than the \a other deviceId */
 	inline bool operator<(const XsDeviceId& other) const
 	{
@@ -695,11 +698,11 @@ struct XsDeviceId
 	}
 
 
-//============================================================================================================
-//============================================================================================================
-//==== Deprecated methods follow                                                                         =====
-//============================================================================================================
-//============================================================================================================
+	//============================================================================================================
+	//============================================================================================================
+	//==== Deprecated methods follow                                                                         =====
+	//============================================================================================================
+	//============================================================================================================
 	XSDEPRECATED_START
 
 	/*! \brief \copybrief XsDeviceId_isMtMk4(const struct XsDeviceId*) */
@@ -858,7 +861,7 @@ struct XsDeviceId
 		return 0 != XsDeviceId_isMtMk5_710(this);
 	}
 
-//============================================================================================================
+	//============================================================================================================
 
 private:
 #endif

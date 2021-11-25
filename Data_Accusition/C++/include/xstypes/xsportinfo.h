@@ -1,5 +1,5 @@
 
-//  Copyright (c) 2003-2020 Xsens Technologies B.V. or subsidiaries worldwide.
+//  Copyright (c) 2003-2021 Xsens Technologies B.V. or subsidiaries worldwide.
 //  All rights reserved.
 //  
 //  Redistribution and use in source and binary forms, with or without modification,
@@ -48,9 +48,9 @@ extern "C" {
 #endif
 
 #ifndef __cplusplus
-	typedef struct XsPortInfo XsPortInfo;
+typedef struct XsPortInfo XsPortInfo;
 #else
-	struct XsPortInfo;
+struct XsPortInfo;
 #endif
 
 XSTYPES_DLL_API void XsPortInfo_clear(XsPortInfo* thisPtr);
@@ -68,8 +68,8 @@ XSTYPES_DLL_API void XsPortInfo_swap(XsPortInfo* a, struct XsPortInfo* b);
 #endif
 
 #if defined(_MSC_VER)
-#pragma warning(push)
-#pragma warning(disable : 4996)
+	#pragma warning(push)
+	#pragma warning(disable : 4996)
 #endif
 
 typedef enum XsPortLinesOptions
@@ -91,7 +91,8 @@ typedef enum XsPortLinesOptions
 	XPLO_RtsCtsFlowControl = (1 << 6)
 } XsPortLinesOptions;
 
-struct XsPortInfo {
+struct XsPortInfo
+{
 #ifdef __cplusplus
 	/*! \brief Default constructor, creates an empty port info object */
 	XsPortInfo()
@@ -153,16 +154,28 @@ struct XsPortInfo {
 	}
 
 	/*! \brief greater than operator, used for sorting the list. */
-	inline bool operator > (const XsPortInfo& p) const { return strcmp(m_portName, p.m_portName) > 0; }
+	inline bool operator > (const XsPortInfo& p) const
+	{
+		return strcmp(m_portName, p.m_portName) > 0;
+	}
 
 	/*! \brief less than operator, used for sorting the list. */
-	inline bool operator < (const XsPortInfo& p) const { return strcmp(m_portName, p.m_portName) < 0; }
+	inline bool operator < (const XsPortInfo& p) const
+	{
+		return strcmp(m_portName, p.m_portName) < 0;
+	}
 
 	/*! \brief equality operator, used for finding items in a list. */
-	inline bool operator == (const XsPortInfo& p) const { return strcmp(m_portName, p.m_portName) == 0; }
+	inline bool operator == (const XsPortInfo& p) const
+	{
+		return strcmp(m_portName, p.m_portName) == 0;
+	}
 
 	/*! \brief equality operator, used for finding items in a list. */
-	inline bool operator == (const char *port) const { return strcmp(m_portName, port) == 0; }
+	inline bool operator == (const char* port) const
+	{
+		return strcmp(m_portName, port) == 0;
+	}
 
 	/*! \copydoc XsPortInfo_portNumber */
 	inline int portNumber() const
@@ -290,25 +303,25 @@ private:
 };
 
 #if defined(_MSC_VER)
-#pragma warning(pop)
+	#pragma warning(pop)
 #endif
 
 #if defined(__cplusplus) && !defined(XSENS_NO_STL)
 #include <ostream>
 namespace std
 {
-	template<typename _CharT, typename _Traits>
-	basic_ostream<_CharT, _Traits>& operator<<(basic_ostream<_CharT, _Traits>& o, XsPortInfo const& xpi)
-	{
-		if (xpi.isUsb())
-			o << "usb ";
-		o << "port " << xpi.portName();
-		if (xpi.baudrate() != XBR_Invalid)
-			o << " at " << xpi.baudrate() << " bps";
-		if (xpi.deviceId() != 0)
-			o << " (" << xpi.deviceId() << ")";
-		return o;
-	}
+template<typename _CharT, typename _Traits>
+basic_ostream<_CharT, _Traits>& operator<<(basic_ostream<_CharT, _Traits>& o, XsPortInfo const& xpi)
+{
+	if (xpi.isUsb())
+		o << "usb ";
+	o << "port " << xpi.portName();
+	if (xpi.baudrate() != XBR_Invalid)
+		o << " at " << xpi.baudrate() << " bps";
+	if (xpi.deviceId() != 0)
+		o << " (" << xpi.deviceId() << ")";
+	return o;
+}
 }
 
 #endif

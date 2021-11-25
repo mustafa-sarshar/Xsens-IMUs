@@ -1,5 +1,5 @@
 
-//  Copyright (c) 2003-2020 Xsens Technologies B.V. or subsidiaries worldwide.
+//  Copyright (c) 2003-2021 Xsens Technologies B.V. or subsidiaries worldwide.
 //  All rights reserved.
 //  
 //  Redistribution and use in source and binary forms, with or without modification,
@@ -57,7 +57,7 @@ public:
 
 	XsOutputConfigurationArray outputConfiguration() const;
 
-	bool setOutputConfiguration(XsOutputConfigurationArray& o) override;
+	XsResultValue setOutputConfigurationInternal(XsOutputConfigurationArray& o) override;
 
 	int getBaseFrequency(XsDataIdentifier dataType = XDI_None) const override;
 	std::vector<int> supportedUpdateRates(XsDataIdentifier dataType = XDI_None) const override;
@@ -70,7 +70,7 @@ public:
 	bool setHeadingOffset(double offset);
 
 	XsSyncSettingArray syncSettings() const override;
-	bool setSyncSettings(const XsSyncSettingArray &s) override;
+	bool setSyncSettings(const XsSyncSettingArray& s) override;
 
 	bool setNoRotation(uint16_t duration);
 
@@ -83,7 +83,7 @@ public:
 	uint16_t rs485TransmissionDelay() const;
 	bool setRs485TransmissionDelay(uint16_t delay);
 
-	bool messageLooksSane(const XsMessage &msg) const override;
+	bool messageLooksSane(const XsMessage& msg) const override;
 
 	bool startRepresentativeMotion() override;
 	bool representativeMotionState() override;
@@ -112,7 +112,11 @@ protected:
 		\param dataType The Data identifier to use
 		\returns The base frequency result
 	*/
-	virtual BaseFrequencyResult getBaseFrequencyInternal(XsDataIdentifier dataType = XDI_None) const { (void) dataType; return BaseFrequencyResult(); };
+	virtual BaseFrequencyResult getBaseFrequencyInternal(XsDataIdentifier dataType = XDI_None) const
+	{
+		(void) dataType;
+		return BaseFrequencyResult();
+	};
 
 	virtual bool hasIccSupport() const;
 	virtual bool deviceUsesOnBoardFiltering();
